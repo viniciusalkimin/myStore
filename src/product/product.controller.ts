@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post } from "@nestjs/common";
-import { UserRepository } from "src/user/user.repository";
 import { ProductRepository } from "./product.repository";
+import { CreateProductDTO } from "./dto/createProduct.dto";
 
 @Controller('/products')
 export class ProductController{
@@ -9,14 +9,14 @@ export class ProductController{
     }
 
     @Post()
-    async createProduct(@Body() productData) {
-        this.userRepository.save(productData);
+    async createProduct(@Body() productData: CreateProductDTO) {
+        this.productRepository.save(productData);
         return productData;
     }
 
     @Get()
     async listAllProducts() {
-        return this.userRepository.listAll();
+        return this.productRepository.listAll();
     }
 
 }
