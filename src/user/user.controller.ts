@@ -14,7 +14,7 @@ export class UserController{
     }
 
     @Get()
-    async listUser() {
+    async listAllUser() {
         return this.userRepository.listAll()
     }
 }
