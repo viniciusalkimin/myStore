@@ -1,11 +1,12 @@
 import { Injectable } from "@nestjs/common";
+import { UserEntity } from "./user.entity";
 
 @Injectable()
 export class UserRepository {
 
-    private users = [];
+    private users: UserEntity[] = [];
 
-    async save(user) {
+    async save(user: UserEntity) {
         this.users.push(user);
     }
 
@@ -14,7 +15,7 @@ export class UserRepository {
     }
 
     async userExistsByEmail(email: string) {
-        const probableUser = this.users.find(
+        const probableUser: UserEntity = this.users.find(
             user => user.email === email
         );
         return probableUser !== undefined;
