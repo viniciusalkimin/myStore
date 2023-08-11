@@ -4,6 +4,7 @@ import { EmailIsUnique } from "../validation/emailIsUnique.validator";
 export class UpdateUserDTO {
 
     @IsOptional()
+    @IsNotEmpty()
     name: string;
 
     @IsOptional()
