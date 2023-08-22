@@ -12,7 +12,7 @@ export class UserEntity {
     @Column({name: 'email', length: 70, nullable: false})
     email: string;
 
-    @Column({name: 'email', length: 255, nullable: false})
+    @Column({name: 'password', length: 255, nullable: false})
     password: string;
 
     @CreateDateColumn({name: 'created_at'})
