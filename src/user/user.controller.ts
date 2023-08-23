@@ -2,7 +2,6 @@ import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common"
 import { UserRepository } from "./user.repository";
 import { CreateUserDTO } from "./dto/createUser.dto";
 import { UserEntity } from "./user.entity";
-import { v4 as uuid} from 'uuid';
 import { UpdateUserDTO } from "./dto/updateUser.dto";
 import { UserService } from "./user.service";
 
@@ -18,7 +17,6 @@ export class UserController{
         userEntity.name = userData.name;
         userEntity.email = userData.email;
         userEntity.password = userData.password;
-        userEntity.id = uuid();
         const userCreated = await this.userService.createUser(userEntity);
         return {
             user: userCreated,
