@@ -4,6 +4,7 @@ import { ProductModule } from './product/product.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DbConfigService } from './config/db.config.service';
 import { ConfigModule } from '@nestjs/config';
+import { PedidoModule } from './pedido/pedido.module';
 
 
 @Module({
@@ -12,7 +13,7 @@ import { ConfigModule } from '@nestjs/config';
     inject: [DbConfigService]
   }), ConfigModule.forRoot({
     isGlobal: true
-  })],
+  }), PedidoModule],
   controllers: [],
   providers: [],
 })
