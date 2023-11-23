@@ -1,13 +1,15 @@
 import { Controller, Post, Body, Param } from '@nestjs/common';
 import { PedidoService } from './pedido.service';
+import { CreatePedidoDto } from './dto/create-pedido.dto';
 
 @Controller('pedido')
 export class PedidoController {
   constructor(private readonly pedidoService: PedidoService) {}
 
   @Post()
-  create(@Param('userId') userId: string) {
-    return this.pedidoService.cadastraPedido(userId);
+  async create(@Param('userId') userId: string,
+  @Body()dadosPedido: CreatePedidoDto) {
+    return this.pedidoService.cadastraPedido(userId, dadosPedido);
   }
 
   // @Get()

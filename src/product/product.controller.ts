@@ -2,9 +2,6 @@ import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common"
 import { ProductRepository } from "./product.repository";
 import { CreateProductDTO } from "./dto/createProduct.dto";
 import { ProductService } from "./product.service";
-import { v4 as uuid} from 'uuid';
-import { NewProduct } from "./dto/newProduct.dto";
-import { async } from "rxjs";
 import { UpdateProduct } from "./dto/updateProduct.dto";
 
 @Controller('/products')
